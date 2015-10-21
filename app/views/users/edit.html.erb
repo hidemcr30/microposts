@@ -1,71 +1,70 @@
-<% @page_title = "プロフィールの編集" %>
-
-<div class="contents-wrap">
-<h1><%= @page_title %></h1>
-
-  <%= form_for(@user) do |f| %>
-    <% if @user.errors.present? %>
-      <div class="alert alert-danger ">
-        <%= alert %>
-        <ul>
-        <% @user.errors.full_messages.each do |full_message| %>
-          <li><%= full_message %></li>
-        <% end %> 
-        </ul>
-      </div>
-  <% end %>
-
-  <div class="form-horizontal" role="form">
-　<!-- 名前 -->
-    <div class="form-group">
-      <div class="col-sm-7 col-md-7">
-        <h4><i class="fa fa-smile-o fa-fw" aria-hidden="true"></i> 名前</h4>
-        <%= f.text_field :name, :class => "form-control", placeholder: "煌木 太郎" %>
-      </div>
-    </div>
-  <!-- エリア -->
-      <div class="form-group">
-      <div class="col-sm-7 col-md-7">
-        <h4><i class="fa fa fa-heart fa-fw" aria-hidden="true"></i> 在住エリア（下記から選択してください）</h4>
-        <% options = [["北海道", 1], ["東北", 2], ["関東", 3], ["中部", 4], ["近畿", 5], ["中国", 6], ["四国", 7], ["九州", 8], ["沖縄", 9]] %>
-        <%= f.select :area, options, :include_blank　=> true, :class => "form-control" %>
-      </div>
-    </div>
-  <!-- 自己紹介 -->
-    <div class="form-group">
-      <div class="col-sm-7 col-md-7">
-        <h4><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i> 自己紹介</h4>
-        <%= f.text_area :profile, :class => "form-control", :rows => 6, placeholder: "ここに自己紹介を20文字以上で入力してください" %>
-      </div>
-    </div>
-  <!-- メール -->
-    <div class="form-group">
-      <div class="col-sm-7 col-md-7">
-        <h4><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i> メールアドレス(変更する場合は入力してください）</h4>
-        <%= email_field :email, :class => "form-control" %>
-      </div>
-    </div>
-  <!-- パスワード-->
-    <div class="form-group">
-      <div class="col-sm-7 col-md-7">
-        <h4><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i> パスワード</h4>
-        <%= f.password_field :password, :class => "form-control", placeholder: "変更する場合は入力してください" %>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-7 col-md-7">
-        <h4><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i> パスワード確</h4>
-        <%= f.password_field :password_confirmation, :class => "form-control" %>
-      </div>
-    </div>
-   <!-- ボタン -->
-    <div class="form-group">
-      <div class="col-sm-4">
-        <%= f.submit "更新する", :class => "btn btn-primary" %>
-      </div>
+<% @page_title = "プロフィール編集" %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.present? %>
+    <div class="alert alert-danger ">
+      <%= alert %>
+      <ul>
+      <% @user.errors.full_messages.each do |full_message| %>
+        <li><%= full_message %></li>
+      <% end %> 
+      </ul>
     </div>
   <% end %>
-</div>
-</div>
-
-
+  <h1><%= @page_title %></h1>
+  <div class="row">
+    <div class="edit-wrapper">
+      
+      <form class="form" role="form">
+    　<!-- 名前 -->
+        <div class="form-group">        
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+            <h4><span class="fa fa-smile-o fa-fw" aria-hidden="true"></span> 名前</h4>
+            <%= f.text_field :name, :class => "form-control", placeholder: "煌木 太郎" %>
+          </div>
+        </div>
+      <!-- エリア -->
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+            <h4><span class="fa fa fa-map-marker fa-fw" aria-hidden="true"></span> 居住エリア</h4>
+            <% options = ["北海道", "東北", "関東", "中部", "近畿", "中国", "四国", "九州", "沖縄"] %>
+            <%= f.select :area, options, :class => "form-control" %>
+          </div>
+        </div>
+      <!-- 自己紹介 -->
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+            <h4><span class="fa fa-file-text-o fa-fw" aria-hidden="true"></span> 自己紹介</h4>
+            <%= f.text_area :profile, :class => "form-control", :rows => 6, placeholder: "ここに自己紹介を20文字以上で入力してください" %>
+          </div>
+        </div>
+      <!-- メール -->
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+            <h4><span class="fa fa-envelope-o fa-fw" aria-hidden="true"></span> メールアドレス(変更時のみ）</h4>
+            <%= email_field :email, :class => "form-control" %>
+          </div>
+        </div>
+      <!-- パスワード-->
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+            <h4><span class="fa fa-key fa-fw" aria-hidden="true"></span> パスワード</h4>
+            <%= f.password_field :password, :class => "form-control", placeholder: "変更する場合は入力してください" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+            <h4><span class="fa fa-check-circle-o" aria-hidden="true"></span> パスワード確認</h4>
+            <%= f.password_field :password_confirmation, :class => "form-control" %>
+          </div>
+        </div>
+       <!-- ボタン -->
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+            <%= f.submit "更新する", :class => "btn btn-primary" %>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+<% end %>
+	

@@ -4,6 +4,7 @@
 /* universal */
 
 body {
+  font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;
   padding-top: 60px;
   background-image: image_url("desktop.jpg");
   background-position: center center;
@@ -20,8 +21,13 @@ textarea {
   resize: vertical;
 }
 
-.contents-wrap{
-  background-color: #f5deb3;
+.container{
+  padding: 0 20px 40px 20px;
+  min-width: 320px;
+  max-width: 768px;
+  height: 100%;
+  min-height: 100%;
+  background-color: #fafafa;
   opacity: 0.95;
 }
 
@@ -46,14 +52,59 @@ h1 {
   text-align: center;
 }
 
-h2 {
+
+.top-wrapper{
+  text-align: center;
+}
+
+.avatar img{
+  display: block;
+  margin: 0 auto 20px;
+  
+}
+
+
+.btn-info{
+  background: #1e90ff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
   font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 250PX;
+}
+  
+
+.btn-danger{
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 250px;
+}
+
+
+
+h2 {
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
   color: #777;
 }
+
+
+
+
 
 p {
   font-size: 1.1em;
@@ -96,10 +147,6 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
-}
-
-input {
-  height: auto !important;
 }
 
 /* エラーメッセージ */

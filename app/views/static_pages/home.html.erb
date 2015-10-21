@@ -1,9 +1,17 @@
-<div class="contents-wrap">
-  <body>
-    <h1>MICRO POSTSへようこそ</h1>
-    <%= link_to "ログイン", :login %>
-    <%= link_to "サインアップ", :signup %>
-  </body>
+<div class="container">
+  <div class="top-wrapper">
+    <h1 class="top-h1">MICRO POSTSへようこそ</h1>
+    <div>
+      <%= image_tag("PostIt.png", :alt => "post") %>
+    </div>
+    <div class="button-panel">
+      <%= link_to "Log In", :login, class: "btn btn-info" %>
+    </div>
+    <div class="button-panel">
+      <%= link_to "Sign Up", :signup, class: "btn btn-danger" %>
+    </div>
+  </div>
 </div>
+
 
 
