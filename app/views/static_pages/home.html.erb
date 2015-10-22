@@ -1,17 +1,27 @@
-<div class="container">
-  <div class="top-wrapper">
-    <h1 class="top-h1">MICRO POSTSへようこそ</h1>
-    <div>
-      <%= image_tag("PostIt.png", :alt => "post") %>
-    </div>
-    <div class="button-panel">
-      <%= link_to "Log In", :login, class: "btn btn-info" %>
-    </div>
-    <div class="button-panel">
-      <%= link_to "Sign Up", :signup, class: "btn btn-danger" %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <div class="top-wrapper">
+      <h1 class="top-h1">MICRO POSTSへようこそ</h1>
+      <div>
+        <%= image_tag("PostIt.png", :alt => "post") %>
+      </div>
+      <div class="button-panel">
+        <%= link_to "Log In", login_path, class: "btn btn-info" %>
+      </div>
+      <div class="button-panel">
+        <%= link_to "Sign Up", signup_path, class: "btn btn-danger" %>
+      </div>
     </div>
   </div>
-</div>
-
-
-
+<% end %>
