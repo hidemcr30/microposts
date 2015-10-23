@@ -31,8 +31,13 @@
     </tr>
   </table>
 
+<% if logged_in? %>
 <div class="button-panel">
   <%= link_to "プロフィール編集" , edit_user_path(current_user), class: "btn btn-info", id: "profile-button" %>
+<% else %>
+<div class="button-panel">
+  <%= link_to "ログインする" , login_path, class: "btn btn-info", id: "profile-button" %>
+<% end %>
 </div>
 </div>
  
