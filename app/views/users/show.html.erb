@@ -7,9 +7,19 @@
       </h1>
       <span class="fa fa fa-map-marker fa-fw" aria-hidden="true"></span> 居住エリア <%= @user.area %>
     </section>
-    <div class="button-panel">
-      <%= link_to "プロフィール編集" , edit_user_path, class: "btn btn-info", id: "profile-button" %>
-    </div>
+    
+    <% if logged_in? %>
+      <% if @user == current_user %>
+        <div class="button-panel">
+        <%= link_to "プロフィール編集" , edit_user_path(current_user), class: "btn btn-info", id: "profile-button" %>
+        </div>
+      <% else %>
+      <% end %>
+    <% else %>
+      <div class="button-panel">
+      <%= link_to "ログインする" , login_path, class: "btn btn-info", id: "profile-button" %>
+      </div>
+    <% end %>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

@@ -30,6 +30,6 @@ class User < ActiveRecord::Base
   
   # 投稿を取得
   def feed_items
-    Micropost.where(user_id: following_users_ids + [self.id])
+    Micropost.where(user_id: following_user_ids + [self.id])
   end
 end
