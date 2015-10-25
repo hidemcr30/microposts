@@ -1,4 +1,12 @@
-<h1> MyPage </h1>
+<% @page_title = @user.name %>
+
+<% if @user == current_user %>
+  <h1>My page</h1>
+<% else %>
+  <h1><%= @page_title %>'s page</h1>
+<% end %>
+
+
 <div class="alt-table-responsive col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
   <div class="avatar">
     <%= gravatar_for @user %>
@@ -32,8 +40,11 @@
   </table>
 
 <% if logged_in? %>
-<div class="button-panel">
-  <%= link_to "プロフィール編集" , edit_user_path(current_user), class: "btn btn-info", id: "profile-button" %>
+  <% if @user == current_user %>
+    <div class="button-panel">
+    <%= link_to "プロフィール編集" , edit_user_path(current_user), class: "btn btn-info", id: "profile-button" %>
+  <% else %>
+  <% end %>
 <% else %>
 <div class="button-panel">
   <%= link_to "ログインする" , login_path, class: "btn btn-info", id: "profile-button" %>
