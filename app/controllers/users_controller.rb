@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
+  before_action :set_user,only: [:show, :followings, :followers]
   def show
-   @user = User.find(params[:id])
    @microposts = @user.microposts
   end
   
@@ -33,10 +32,24 @@ class UsersController < ApplicationController
     end
   end
   
+  def followings
+    @title = "followings"
+    @followers = @user.following_users
+    render 'followers'
+  end
+  
+  def followers
+    @title = "followers"    
+    @followers = @user.follower_users
+  end
+  
     
   private
   def user_params
     params.require(:user).permit(:name, :area, :profile, :email, :password, :password_confirmation)
   end
   
+  def set_user
+   @user = User.find(params[:id])
+  end
 end
