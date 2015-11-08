@@ -1,0 +1,27 @@
+<div class="col-md-12">
+  <div class="followers">
+    <div class="panel-body">
+      <div class="alt-table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th class="col-xs-1 col-ms-1 col-md-1 col-lg-1">avatar</th>
+              <th class="col-xs-3 col-ms-3 col-md-3 col-lg-3">Name</th>
+              <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">Area</th>
+              <th class="col-xs-6 col-ms-6 col-md-6 col-lg-6">Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><span><%= gravatar_for @user %></span></th>
+              <td><span class="message-body"><%= link_to "#{user.name}", user_path(user.id) %></span></td>
+              <td><span class="message-body"><%= user.area %></span></td>
+              <td><span class="message-body"><%= user.profile %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

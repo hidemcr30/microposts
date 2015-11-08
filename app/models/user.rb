@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   has_many :follower_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :follower_users, through: :follower_relationships, source: :follower
 
+
+  #画像データの関連付け
+  has_one :image, class_name: "UserImage", dependent: :destroy
+
+
   # 他のユーザーをフォローする
   def follow(other_user)
     following_relationships.create(followed_id: other_user.id)
@@ -27,7 +32,6 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following_users.include?(other_user)
   end
-  
   
   def followed_count
     follower_relationships.count

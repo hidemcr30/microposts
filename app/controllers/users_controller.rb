@@ -1,8 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user,only: [:show, :followings, :followers]
+  
+  def index
+    @user = current_user
+    @allusers = User.page(params[:page])
+  end
+  
   def show
    @microposts = @user.microposts
+   @image = @user.image
   end
+
   
   def new
     @user = User.new
@@ -47,6 +55,14 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :area, :profile, :email, :password, :password_confirmation)
+  end
+  
+  def send_image
+    if @user.image.present?
+      send_data @user.image.data, type: @user.image.content_type, disposition: "inline"
+    else
+      raise NotFound
+    end
   end
   
   def set_user
