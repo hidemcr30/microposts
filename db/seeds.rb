@@ -9,7 +9,7 @@
 # coding: utf-8
 
 
-100.times do User.all
+100.times do User.all |i|
   Micropost.create(:content => "これは#{i}番目のmicropostsです" )
 end
   #  users = User.all
