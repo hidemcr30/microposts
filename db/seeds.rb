@@ -8,9 +8,10 @@
 
 # coding: utf-8
 
-
-100.times do User.all |i|
-  Micropost.create(:content => "これは#{i}番目のmicropostsです" )
+User.all do
+  30.times do |i|
+    Micropost.create(:content => "これは#{i}番目のmicropostsです" )
+  end
 end
   #  users = User.all
   #  k=0
