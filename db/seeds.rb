@@ -10,9 +10,10 @@
 
 
 100.times do |i|
-  user = User.create(:name => "ユーザー#{i}", :email => "user#{i}@user.com", :profile => "私は#{i}番目のユーザーです", :password => "password#{i}", :password_confirmation => "password#{i}")
-  user.microposts.create!(content: content)
+  User.create(:name => "ユーザー#{i}", :email => "user#{i}@user.com", :profile => "私は#{i}番目のユーザーです", :password => "password#{i}", :password_confirmation => "password#{i}")
+  user.each.microposts.create(:content => "これは#{i}番目のmicropostsです" )
 end
+
   #  users = User.all
   #  k=0
   #  content = "test" + K
