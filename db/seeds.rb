@@ -13,7 +13,7 @@
   User.create(:name => "ユーザー#{i}", :email => "user#{i}@user.com", :profile => "私は#{i}番目のユーザーです", :password => "password#{i}", :password_confirmation => "password#{i}")
   users = User.all
   users.each do |micro|
-    micropost.create(:content => "これは#{i}番目のmicropostsです" )
+    Micropost.create(:content => "これは#{i}番目のmicropostsです" )
   end
 end
 
