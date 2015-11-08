@@ -9,14 +9,9 @@
 # coding: utf-8
 
 
-100.times do |i|
-  User.create(:name => "ユーザー#{i}", :email => "user#{i}@user.com", :profile => "私は#{i}番目のユーザーです", :password => "password#{i}", :password_confirmation => "password#{i}")
-  users = User.all
-  users.each do |micro|
-    Micropost.create(:content => "これは#{i}番目のmicropostsです" )
-  end
+100.times do User.all
+  Micropost.create(:content => "これは#{i}番目のmicropostsです" )
 end
-
   #  users = User.all
   #  k=0
   #  content = "test" + K

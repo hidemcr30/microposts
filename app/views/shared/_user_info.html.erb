@@ -2,7 +2,7 @@
 <% if @image.present? %>
    <%= link_to image_tag("https://secure.gravatar.com/avatar/%20%20%20%20cedcc154f4b13443b66729fd407b8f4a%20%20%20%20?s=%20%20%20%2080"),@user %>
 <% else %>
-  <%= link_to gravatar_for(current_user, size: 60), current_user %>
+  <%= link_to gravatar_for(@user, size: 60), current_user %>
 <% end %>
 
 <h1><%= link_to "#{current_user.name}", user_path(current_user.id) %></h1>
